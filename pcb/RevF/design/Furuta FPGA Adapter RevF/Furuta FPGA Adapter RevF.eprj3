@@ -1,0 +1,168 @@
+{
+  "name": "Furuta FPGA Adapter RevF",
+  "owner_uuid": "a79bb41342794198b844caca9dcf80e2",
+  "creator_uuid": "a79bb41342794198b844caca9dcf80e2",
+  "created_at": "2026-10-14 16:57:45",
+  "updated_at": "2026-10-14 16:57:45",
+  "modifier_uuid": "a79bb41342794198b844caca9dcf80e2",
+  "content": "Aligned compact layout, structured signal routing and through-hole J9; 2026-10-28 offline candidate.",
+  "archive": false,
+  "cbb_project": 0,
+  "thumb": "",
+  "ticket": 1,
+  "g_ticket": 1,
+  "boards": [],
+  "block_symbol_attrs_groups": {},
+  "default_sheet": "80f063cf6002f593",
+  "branch_uuid": "",
+  "pcb_count": 0,
+  "format": "folder",
+  "profile": {
+    "boards": {
+      "ebc0489a8ad5eca1": {
+        "uuid": "ebc0489a8ad5eca1",
+        "title": "Board1",
+        "zIndex": 1
+      }
+    },
+    "schematics": {
+      "658db82c46f95c4a": {
+        "uuid": "658db82c46f95c4a",
+        "name": "Schematic1",
+        "board": "ebc0489a8ad5eca1",
+        "source": "",
+        "version": "1793153433422",
+        "updateTime": 1793153433422
+      }
+    },
+    "sheets": {
+      "ebd5b7335d0754f9": {
+        "uuid": "ebd5b7335d0754f9",
+        "title": "01_FPGA_P7_P8_POWER",
+        "schematic_uuid": "658db82c46f95c4a",
+        "zIndex": 1,
+        "source": "",
+        "version": "1791981072118",
+        "updateTime": 1791981072118
+      },
+      "07ecc9d89883346d": {
+        "uuid": "07ecc9d89883346d",
+        "title": "02_SENSOR_ZH15_SPI",
+        "schematic_uuid": "658db82c46f95c4a",
+        "zIndex": 2,
+        "source": "",
+        "version": "1791981072802",
+        "updateTime": 1791981072802
+      },
+      "85d7b66e7ac5b85e": {
+        "uuid": "85d7b66e7ac5b85e",
+        "title": "03_DENGFOC_AND_STOP",
+        "schematic_uuid": "658db82c46f95c4a",
+        "zIndex": 3,
+        "source": "",
+        "version": "1791979075421",
+        "updateTime": 1791979075421
+      },
+      "5f0aa18a342432ee": {
+        "uuid": "5f0aa18a342432ee",
+        "title": "04_P5_CURRENT_ADC",
+        "schematic_uuid": "658db82c46f95c4a",
+        "zIndex": 4,
+        "source": "",
+        "version": "1791981841514",
+        "updateTime": 1791981841514
+      },
+      "dd0a847c1aba39c3": {
+        "uuid": "dd0a847c1aba39c3",
+        "title": "05_POSITION_VELOCITY_POTS",
+        "schematic_uuid": "658db82c46f95c4a",
+        "zIndex": 5,
+        "source": "",
+        "version": "1791979076785",
+        "updateTime": 1791979076785
+      },
+      "5b0bce21717ccb1c": {
+        "uuid": "5b0bce21717ccb1c",
+        "title": "06_PANEL_INTERFACE",
+        "schematic_uuid": "658db82c46f95c4a",
+        "zIndex": 6,
+        "source": "",
+        "version": "1793153433422",
+        "updateTime": 1793153433422
+      },
+      "609d137c13c54353": {
+        "uuid": "609d137c13c54353",
+        "title": "07_KEYS_LEDS_DEBUG",
+        "schematic_uuid": "658db82c46f95c4a",
+        "zIndex": 7,
+        "source": "",
+        "version": "1791979077816",
+        "updateTime": 1791979077816
+      },
+      "fe2651ff05f4e368": {
+        "uuid": "fe2651ff05f4e368",
+        "title": "08_ANALOG_POWER_REFERENCE",
+        "schematic_uuid": "658db82c46f95c4a",
+        "zIndex": 8,
+        "source": "",
+        "version": "1791979078517",
+        "updateTime": 1791979078517
+      },
+      "1b7fc111b085f1d7": {
+        "uuid": "1b7fc111b085f1d7",
+        "title": "09_ENCODER_LEVEL_INTERFACE",
+        "schematic_uuid": "658db82c46f95c4a",
+        "zIndex": 9,
+        "source": "",
+        "version": "1791979079215",
+        "updateTime": 1791979079215
+      }
+    },
+    "pcbs": {
+      "aa5fe8429871a19e": {
+        "uuid": "aa5fe8429871a19e",
+        "title": "PCB1",
+        "board": "ebc0489a8ad5eca1",
+        "parent_uuid": "",
+        "source": "",
+        "version": "1793184488752",
+        "updateTime": 1793184488752
+      }
+    },
+    "panels": {
+      "d90c000a3826e0b0": {
+        "uuid": "d90c000a3826e0b0",
+        "title": "Panel1",
+        "zIndex": null
+      }
+    },
+    "blockSymbols": {},
+    "owner": {
+      "uuid": "a79bb41342794198b844caca9dcf80e2"
+    },
+    "simSchematics": {},
+    "simulations": {}
+  },
+  "config": {
+    "defaultSheet": "80f063cf6002f593",
+    "settings": {
+      "UNIVERSAL": {
+        "dataType": "UNIVERSAL",
+        "data": {
+          "allowLibRename": true,
+          "defaultNetName": true,
+          "wireMultipleNet": true,
+          "netFlagCrossLayerConnection": true,
+          "netLabelCrossPageConnection": true,
+          "busGenerateNetClass": true,
+          "relevanceDisplayRow": "SINGLE",
+          "relevanceBelongSchPage": "NAME",
+          "relevanceLocation": "ZONE",
+          "multipartCrossLayer": true,
+          "nonElectronicAddIntoBom": false,
+          "nonElectronicUpdatePcb": false
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,97 @@
+// R1 perfboard: P7.15 is ENC_OE; no panel/STOP input. 3.3 V BANK2 required.
+IO_LOC "PWM_U" A13;
+IO_PORT "PWM_U" IO_TYPE=LVCMOS33;
+IO_LOC "PWM_V" A14;
+IO_PORT "PWM_V" IO_TYPE=LVCMOS33;
+IO_LOC "PWM_W" A15;
+IO_PORT "PWM_W" IO_TYPE=LVCMOS33;
+IO_LOC "EN_REQ" A16;
+IO_PORT "EN_REQ" IO_TYPE=LVCMOS33;
+IO_LOC "AS_SCK" A18;
+IO_PORT "AS_SCK" IO_TYPE=LVCMOS33;
+IO_LOC "AS_MOSI" A19;
+IO_PORT "AS_MOSI" IO_TYPE=LVCMOS33;
+IO_LOC "AS_MISO" F13;
+IO_PORT "AS_MISO" IO_TYPE=LVCMOS33;
+IO_LOC "AS_CSN" F14;
+IO_PORT "AS_CSN" IO_TYPE=LVCMOS33;
+IO_LOC "AS_PWM" E13;
+IO_PORT "AS_PWM" IO_TYPE=LVCMOS33;
+IO_LOC "PEND_SCK" E14;
+IO_PORT "PEND_SCK" IO_TYPE=LVCMOS33;
+IO_LOC "PEND_DO" C13;
+IO_PORT "PEND_DO" IO_TYPE=LVCMOS33;
+IO_LOC "PEND_CSN" B13;
+IO_PORT "PEND_CSN" IO_TYPE=LVCMOS33;
+IO_LOC "ADC_CSN" M6;
+IO_PORT "ADC_CSN" IO_TYPE=LVCMOS33;
+IO_LOC "ADC_DIN" M5;
+IO_PORT "ADC_DIN" IO_TYPE=LVCMOS33;
+IO_LOC "ADC_DOUT" P6;
+IO_PORT "ADC_DOUT" IO_TYPE=LVCMOS33;
+IO_LOC "ADC_SCLK" N5;
+IO_PORT "ADC_SCLK" IO_TYPE=LVCMOS33;
+IO_LOC "CLK_50M" Y18;
+IO_PORT "CLK_50M" IO_TYPE=LVCMOS33;
+IO_LOC "UART_RX" J21;
+IO_PORT "UART_RX" IO_TYPE=LVCMOS33;
+IO_LOC "UART_TX" M15;
+IO_PORT "UART_TX" IO_TYPE=LVCMOS33;
+IO_LOC "ENC_OE" D14;
+IO_PORT "ENC_OE" IO_TYPE=LVCMOS33;
+// Keep PEND_DO synchronizer stages together and away from the too-short edge path.
+// The original unconstrained first stage at R65C138 had -0.022 ns input hold slack.
+INS_LOC "dut/sensors/sensors_0/pend/spi/mi_0_s0" R[64:66]C[124:128];
+INS_LOC "dut/sensors/sensors_0/pend/spi/mi_1_s0" R[64:66]C[124:128];
+// Same physical hold closure for AS5048 input; do not relax its SDC budget.
+INS_LOC "dut/sensors/sensors_0/asenc/spi/mi_0_s0" R[43:45]C[124:128];
+INS_LOC "dut/sensors/sensors_0/asenc/spi/mi_1_s0" R[43:45]C[124:128];
+// UART input hold closure: previous edge placement R58C146 gave -0.153 ns.
+INS_LOC "dut/serial/receiver/sync_0_s0" R[57:59]C[116:120];
+INS_LOC "dut/serial/receiver/sync_1_s0" R[57:59]C[116:120];
+// ADC input hold closure: R76C32 gave -0.357 ns; retain original external timing budget.
+INS_LOC "dut/sensors/sensors_0/adc/spi/rx_0_s1" R[75:77]C[88:92];
+// Keep ADC output registers near left-side IO to meet the unchanged 8 ns pin budget.
+INS_LOC "dut/sensors/sensors_0/adc/spi/sck_s1" R[73:77]C[2:4];
+INS_LOC "dut/sensors/sensors_0/adc/spi/csn_s1" R[73:77]C[2:4];
+INS_LOC "dut/sensors/sensors_0/adc/spi/mosi_s0" R75C2;
+
+// Boundary candidate: move UART synchronizers inward for -0.013 ns hold failure;
+// ADC output flops move nearer left IO for -0.174 ns max-delay failure.
+// External timing budgets remain unchanged.
+
+// ACG720 main-board S0..S4, schematic pages 2/10; no P7 alias.
+IO_LOC "KEY_N[0]" F15;
+IO_PORT "KEY_N[0]" IO_TYPE=LVCMOS33;
+IO_LOC "KEY_N[1]" A20;
+IO_PORT "KEY_N[1]" IO_TYPE=LVCMOS33;
+IO_LOC "KEY_N[2]" B20;
+IO_PORT "KEY_N[2]" IO_TYPE=LVCMOS33;
+IO_LOC "KEY_N[3]" A21;
+IO_PORT "KEY_N[3]" IO_TYPE=LVCMOS33;
+IO_LOC "KEY_N[4]" B21;
+IO_PORT "KEY_N[4]" IO_TYPE=LVCMOS33;
+
+// ACG720 board LEDs, active high; serial common-anode display (schematic1/2/9/10).
+IO_LOC "LED[0]" M22;
+IO_PORT "LED[0]" IO_TYPE=LVCMOS33;
+IO_LOC "LED[1]" N22;
+IO_PORT "LED[1]" IO_TYPE=LVCMOS33;
+IO_LOC "LED[2]" L21;
+IO_PORT "LED[2]" IO_TYPE=LVCMOS33;
+IO_LOC "LED[3]" K21;
+IO_PORT "LED[3]" IO_TYPE=LVCMOS33;
+IO_LOC "LED[4]" K22;
+IO_PORT "LED[4]" IO_TYPE=LVCMOS33;
+IO_LOC "LED[5]" J22;
+IO_PORT "LED[5]" IO_TYPE=LVCMOS33;
+IO_LOC "LED[6]" H22;
+IO_PORT "LED[6]" IO_TYPE=LVCMOS33;
+IO_LOC "LED[7]" M21;
+IO_PORT "LED[7]" IO_TYPE=LVCMOS33;
+IO_LOC "SEG7_DIO" M18;
+IO_PORT "SEG7_DIO" IO_TYPE=LVCMOS33;
+IO_LOC "SEG7_SCLK" F4;
+IO_PORT "SEG7_SCLK" IO_TYPE=LVCMOS33;
+IO_LOC "SEG7_RCLK" C2;
+IO_PORT "SEG7_RCLK" IO_TYPE=LVCMOS33;
